@@ -1,70 +1,193 @@
-# React + TypeScript + Vite
+# 🌍 MultiLang RAG Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📚 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the frontend documentation for the **MultiLang RAG (Retrieval-Augmented Generation)** system. It is a multilingual AI chatbot that allows users to:
 
-## Expanding the ESLint configuration
+- Upload documents
+- Interact with the system using natural language
+- Receive contextual answers
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Built using **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, this frontend interfaces with a **FastAPI** backend.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+> 📸 *Placeholder for Home Page Screenshot*
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 💡 Features Summary
+
+- 🔐 JWT-based User Authentication
+- 📄 Document Upload & Processing
+- 💬 AI Chat with Document Context (RAG)
+- 🌗 Light/Dark Theme Support
+- 👤 User Profile Management
+
+> 📸 *Placeholder for Upload & Chat UI Screenshot*
+
+---
+
+## 🔗 API Integration (Frontend to Backend)
+
+### Auth APIs
+
+| Method | Endpoint       | Description                   |
+| ------ | -------------- | ----------------------------- |
+| POST   | `/auth/signup` | Registers a new user          |
+| POST   | `/auth/token`  | Authenticates & returns token |
+| GET    | `/auth/user`   | Fetches user profile          |
+
+### File Upload API
+
+| Method | Endpoint   | Description              |
+| ------ | ---------- | ------------------------ |
+| POST   | `/upload/` | Uploads document for RAG |
+
+### Chat APIs
+
+| Method | Endpoint        | Description                      |
+| ------ | --------------- | -------------------------------- |
+| POST   | `/chat/`        | Sends query to RAG engine        |
+| GET    | `/chat/history` | Fetches user's past interactions |
+
+---
+
+## 🔧 System Architecture
+
+### 🧠 High-Level Design
+
+```
++-------------------+     +---------------------+     +----------------------+
+| React Frontend    | --> | FastAPI Backend     | --> | LangChain + VectorDB |
+| (Vite + Tailwind) |     | Auth, Upload, RAG   |     | Embedded Docs        |
++-------------------+     +---------------------+     +----------------------+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> 📸 *Placeholder for System Architecture Diagram*
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 🧩 Low-Level Design
+
+#### 🔐 Authentication Flow
+
+- Signup/Login → `/auth/signup|token`
+- Token stored in `localStorage`
+- Token validated on every request via Axios interceptor
+- Context-based state management (`AuthContext`)
+
+#### 📄 Upload Flow
+
+- File selected → `POST /upload/`
+- Displays success/failure message
+
+#### 💬 Chat Flow
+
+- User submits query → `POST /chat/`
+- Response appended to UI
+- Chat history fetched via `GET /chat/history`
+
+#### 🧑‍💻 Profile
+
+- `GET /auth/user` → shows email & username
+
+---
+
+## 👁 Context API Breakdown
+
+### `AuthContext`
+
+- Stores `token`, `user`
+- Provides `loginUser`, `signupUser`, `logout`
+- Automatically fetches profile on load
+
+### `ThemeContext`
+
+- Stores current theme (`dark` or `light`)
+- Toggles root `classList`
+- Used by Navbar and global layout
+
+---
+
+## 📄 Pages Overview
+
+| Page    | Route      | Protected | Purpose                            |
+| ------- | ---------- | --------- | ---------------------------------- |
+| About   | `/`        | ❌         | Introduction & feature explanation |
+| Login   | `/login`   | ❌         | Login form                         |
+| Signup  | `/signup`  | ❌         | Registration form                  |
+| Upload  | `/upload`  | ✅         | Upload documents                   |
+| Chat    | `/chat`    | ✅         | Chat with RAG system               |
+| Profile | `/profile` | ✅         | View user info and logout          |
+
+> 📸 *Placeholder for Profile Screenshot*
+
+---
+
+## 🎭 UI/UX Design Elements
+
+- Responsive layout (Tailwind-based)
+- Glassmorphism Navbar
+- Hover/transition animations
+- Theme toggle with emoji feedback
+- Card-like UI for major sections
+
+---
+
+## 🚀 Deployment Setup
+
+- Vite-powered frontend
+- `.env.production` holds API base:
+
 ```
-"# multilang-rag-frontend" 
+VITE_API_BASE_URL=https://multilang-rag-backend.onrender.com/
+```
+
+- Optimized for static deployment via **Netlify**, **Vercel**, or **Render**
+
+---
+
+## 📌 Diagram Summary
+
+```
+            +---------------+           +---------------------+
+            |   React App   |           | FastAPI Backend     |
+            | (Browser)     |           | Auth, Upload, RAG   |
+            +-------+-------+           +----+-----------+----+
+                    |                        |           |
+ Signup/Login (POST)|                        |           |
+        ↓        Store Token              |   Vector   |
+    AuthProvider    -----------------------> |   DB/API   |
+     |   |  |                                |           |
+     |   |---> Upload File --> /upload/ ---->+           |
+     |   |---> Chat Query  --> /chat/  -----------------> |
+     |   |---> Get History --> /chat/history <-----------|
+     |   '---> Get Profile --> /auth/user   <------------|
+```
+
+> 📸 *Placeholder for Chat Flow Diagram*
+
+---
+
+## 🚀 Suggested Enhancements
+
+- Add Markdown/chat formatting (e.g., bold, links)
+- Add streaming/chatbot typing effect
+- Add document viewer after upload
+- Multilingual UI text
+- OAuth/Google login
+
+---
+
+## 🙌 Built With
+
+- ⚛️ React + Vite
+- 🎨 Tailwind CSS
+- 🔐 FastAPI + JWT
+- 📚 LangChain for RAG Pipeline
+- 🤖 Gemini API for Embeddings + LLM
+
+
+Developed by **Pravin Kumar Mahato**
+
