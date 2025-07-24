@@ -16,7 +16,7 @@ export const  About  = () => {
       </ul>
 
       <p className="mt-4">
-        Designed and developed by Pravin Kumar Mahato.
+        <strong>Designed and developed by Pravin Kumar Mahato.</strong>
       </p>
     </div>
   );
