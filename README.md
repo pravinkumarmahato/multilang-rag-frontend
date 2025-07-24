@@ -14,6 +14,12 @@ Built using **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, this fron
 
 ---
 
+## 🔗 Live Demo
+- 🌐 Frontend: [https://multilang-rag-frontend.onrender.com](https://multilang-rag-frontend.onrender.com/)
+- ⚙️ Backend API (Swagger): [https://multilang-rag-backend.onrender.com/docs](https://multilang-rag-backend.onrender.com/docs)
+
+---
+
 ### 📸 Screenshots
 
 ### Home/About Page
