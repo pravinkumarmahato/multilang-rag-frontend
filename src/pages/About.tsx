@@ -16,7 +16,7 @@ export const  About  = () => {
       </ul>
 
       <p className="mt-4">
-        Built with ❤️ by Pravin Kumar Mahato. Feel free to contribute or extend it.
+        Designed and developed by Pravin Kumar Mahato.
       </p>
     </div>
   );
