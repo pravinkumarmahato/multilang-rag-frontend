@@ -12,7 +12,45 @@ This is the frontend documentation for the **MultiLang RAG (Retrieval-Augmented 
 
 Built using **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, this frontend interfaces with a **FastAPI** backend.
 
-> 📸 *Placeholder for Home Page Screenshot*
+---
+
+### 📸 Screenshots
+
+### Home/About Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5f71762a-638f-4685-915a-15f274ae914d" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5d58285f-21a0-4a46-a8b1-1a4a80dc7b56" />
+
+###Signup Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ed8822ab-c861-42f9-ae7a-e97bb9ba66bd" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e8bc40c2-369f-47e9-bcec-2cbfe50a33cd" />
+
+### Login Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e206370a-6193-4b1a-9dd3-2b0887071d3f" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c421ceae-6239-4021-8fd1-c07ecae3ed90" />
+
+### Upload Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9cb30ceb-d128-47b8-a4cd-96300d4085e0" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1457b012-2096-4e2c-aee7-e2bfdb4d432f" />
+
+### Chat Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/80f3b5af-3f81-484e-a318-95f1b619b5ee" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5b4548ce-f1da-442c-a614-78ea4e2fe27e" />
+
+### Profile Page
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fba89f06-f760-4cea-80da-36f3c9401ef7" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/de4b3df6-968b-47cc-af01-049da8d373a5" />
 
 ---
 
@@ -23,8 +61,6 @@ Built using **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, this fron
 - 💬 AI Chat with Document Context (RAG)
 - 🌗 Light/Dark Theme Support
 - 👤 User Profile Management
-
-> 📸 *Placeholder for Upload & Chat UI Screenshot*
 
 ---
 
@@ -64,7 +100,7 @@ Built using **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, this fron
 +-------------------+     +---------------------+     +----------------------+
 ```
 
-> 📸 *Placeholder for System Architecture Diagram*
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/219da55b-b0bb-40c0-866c-5f643efd75ad" />
 
 ---
 
@@ -121,8 +157,6 @@ Built using **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, this fron
 | Chat    | `/chat`    | ✅         | Chat with RAG system               |
 | Profile | `/profile` | ✅         | View user info and logout          |
 
-> 📸 *Placeholder for Profile Screenshot*
-
 ---
 
 ## 🎭 UI/UX Design Elements
@@ -165,8 +199,6 @@ VITE_API_BASE_URL=https://multilang-rag-backend.onrender.com/
      |   |---> Get History --> /chat/history <-----------|
      |   '---> Get Profile --> /auth/user   <------------|
 ```
-
-> 📸 *Placeholder for Chat Flow Diagram*
 
 ---
 
